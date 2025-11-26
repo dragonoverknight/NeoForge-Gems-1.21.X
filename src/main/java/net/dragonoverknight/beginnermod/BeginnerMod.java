@@ -1,5 +1,9 @@
 package net.dragonoverknight.beginnermod;
 
+import net.dragonoverknight.beginnermod.item.ModItems;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Item;
+import net.neoforged.neoforge.registries.DeferredItem;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -36,6 +40,8 @@ public class BeginnerMod {
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
+        ModItems.register(modEventBus);
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
@@ -49,7 +55,11 @@ public class BeginnerMod {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            for (DeferredItem<Item> gem : ModItems.GEMS) {
+                event.accept(gem);
+            }
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
