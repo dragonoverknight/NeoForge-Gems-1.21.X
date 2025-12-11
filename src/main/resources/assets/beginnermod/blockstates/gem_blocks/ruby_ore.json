@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "": {
+      "model": "beginnermod:block/gem_blocks/ruby_ore"
+    }
+  }
+
+}

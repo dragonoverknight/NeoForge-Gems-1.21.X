@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "beginnermod:item/amethyst"
+    "layer0": "beginnermod:item/gems/topaz"
   }
 }

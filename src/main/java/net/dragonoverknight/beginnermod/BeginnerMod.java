@@ -1,8 +1,15 @@
 package net.dragonoverknight.beginnermod;
 
+import net.dragonoverknight.beginnermod.block.ModBlocks;
+import net.dragonoverknight.beginnermod.screen.custom.GemPolisherScreen;
+import net.dragonoverknight.beginnermod.block.entity.renderer.ModBlockEntities;
 import net.dragonoverknight.beginnermod.item.ModItems;
+import net.dragonoverknight.beginnermod.screen.ModMenuTypes;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import org.slf4j.Logger;
 
@@ -41,6 +48,9 @@ public class BeginnerMod {
         NeoForge.EVENT_BUS.register(this);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -59,6 +69,21 @@ public class BeginnerMod {
             for (DeferredItem<Item> gem : ModItems.GEMS) {
                 event.accept(gem);
             }
+            for (DeferredItem<Item> uncut_gem : ModItems.RAW_GEMS) {
+                event.accept(uncut_gem);
+            }
+        }
+
+        if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
+            for (DeferredBlock<Block> toolblock : ModBlocks.TOOLBLOCKS) {
+                event.accept(toolblock);
+            }
+        }
+
+        if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
+            for (DeferredBlock<Block> gemblock : ModBlocks.GEMBLOCKS) {
+                event.accept(gemblock);
+            }
         }
     }
 
@@ -74,6 +99,10 @@ public class BeginnerMod {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
 
+        }
+        @SubscribeEvent
+        public static void registerScreens(RegisterMenuScreensEvent event) {
+            event.register(ModMenuTypes.GEM_POLISHER_MENU.get(), GemPolisherScreen::new);
         }
     }
 }

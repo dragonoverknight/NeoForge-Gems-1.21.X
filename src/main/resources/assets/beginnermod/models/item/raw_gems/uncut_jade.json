@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "beginnermod:item/uncut_ruby"
+    "layer0": "beginnermod:item/raw_gems/uncut_jade"
   }
 }

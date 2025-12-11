@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "beginnermod:block/tool_blocks/gem_polisher"
+    }
+  }
+}
