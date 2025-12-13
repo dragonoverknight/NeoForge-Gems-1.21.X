@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "I": {"item": "minecraft:iron_ingot"},
+    "S": {"item": "minecraft:stone"},
+    "P": {"tag": "minecraft:planks"}
+  },
+  "pattern": [
+    "III",
+    "SSS",
+    "P P"
+  ],
+  "result": {
+    "count": 1,
+    "id": "beginnermod:block_items/tool_blocks/gem_polisher"
+  }
+}

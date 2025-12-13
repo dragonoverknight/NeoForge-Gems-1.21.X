@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+      "#": {"item":"beginnermod:gems/amethyst"}
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+      "count": 1,
+      "id": "beginnermod:block_items/gem_blocks/amethyst_block"
+  }
+}

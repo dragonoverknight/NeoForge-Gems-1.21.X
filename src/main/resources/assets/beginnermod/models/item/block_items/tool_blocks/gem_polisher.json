@@ -1,3 +1,6 @@
 {
-  "parent": "beginnermod:block/tool_blocks/gem_polisher"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "beginnermod:item/block_items/tool_blocks/gem_polisher"
+  }
 }

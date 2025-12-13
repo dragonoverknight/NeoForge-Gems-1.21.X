@@ -72,6 +72,8 @@ public class BeginnerMod {
             for (DeferredItem<Item> uncut_gem : ModItems.RAW_GEMS) {
                 event.accept(uncut_gem);
             }
+
+            event.accept(ModItems.PEARL);
         }
 
         if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
@@ -81,6 +83,12 @@ public class BeginnerMod {
         }
 
         if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
+            for (DeferredBlock<Block> gemore : ModBlocks.GEMORES) {
+                event.accept(gemore);
+            }
+        }
+
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
             for (DeferredBlock<Block> gemblock : ModBlocks.GEMBLOCKS) {
                 event.accept(gemblock);
             }

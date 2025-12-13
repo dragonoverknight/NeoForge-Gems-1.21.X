@@ -1,0 +1,24 @@
+modLoader="javafml"
+loaderVersion="[2,)"          # NeoForge loader version range
+license="MIT"
+
+[[mods]]
+modId="beginnermod"           # Must match BeginnerMod.MOD_ID in your Java code
+version="1.0.0"
+displayName="Beginner Mod"
+authors="DragonOverKnight"
+description='''A beginner mod that adds gems, ores, and a gem polisher block.'''
+
+[[dependencies.beginnermod]]
+modId="neoforge"
+type="required"
+versionRange="[20,)"       # Adjust to the NeoForge version you’re targeting
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.beginnermod]]
+modId="minecraft"
+type="required"
+versionRange="[1.21,1.22)" # Adjust to the latest Minecraft version you’re using
+ordering="NONE"
+side="BOTH"
